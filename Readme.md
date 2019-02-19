@@ -1,7 +1,6 @@
 # Личный проект «Менеджер задач» [![Build status][travis-image]][travis-url]
 
-* Студент: [Александр Тубольцев](https://up.htmlacademy.ru/ecmascript/8/user/86460).
-* Наставник: `Неизвестно`.
+* Наставник: `Vitali Usik`.
 
 ---
 
