@@ -1,8 +1,8 @@
 'use strict';
 
-let mainFilterElement = document.getElementsByClassName(`main__filter`)[0];
+const mainFilterElement = document.getElementsByClassName(`main__filter`)[0];
 
-let mockFilterData = {
+const MOCK_FILTER_DATA = {
   'all': {
     name: `all`,
     count: 15,
@@ -47,24 +47,21 @@ const clearFiltersContainer = () => {
   mainFilterElement.innerHTML = ``;
 };
 
-const renderFilter = ({name, count, id, isChecked = false, isDisabled = false}) => {
-  const state = isChecked
-    ? `checked`
-    : isDisabled ? `disabled` : ``;
-
-  return `
+const renderFilter = ({name, count, id, isChecked = false, isDisabled = false}) => (
+  `
     <input
       type="radio"
       id="filter__${id}"
       class="filter__input visually-hidden"
       name="filter"
-      ${state}
+      ${isChecked ? `checked` : ``}
+      ${isDisabled ? `disabled` : ``}
     />
     <label for="filter__${id}" class="filter__label">
       ${name} <span class="filter__${id}-count">${count}</span>
     </label>
-  `;
-};
+  `
+);
 
 const renderFilters = (data) => {
   let fragment = ``;
@@ -78,8 +75,7 @@ const renderFilters = (data) => {
 
 function init() {
   clearFiltersContainer();
-  renderFilters(mockFilterData);
-  // console.log(`it works! ${renderFilter('test', 666, 'all', false)}`);
+  renderFilters(MOCK_FILTER_DATA);
 }
 
 init();
